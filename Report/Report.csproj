@@ -1,0 +1,2604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2E02F1B-B649-4058-A45F-D914DF358D52}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Report</RootNamespace>
+    <AssemblyName>Report</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvancedDataGridView">
+      <HintPath>..\Utility\References\AdvancedDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DGV Printer">
+      <HintPath>..\Utility\References\DGV Printer.dll</HintPath>
+    </Reference>
+    <Reference Include="GlassButton">
+      <HintPath>References\GlassButton.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2014.2.715.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.GridView, Version=2014.2.715.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2014.2.715.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2014.2.715.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikData, Version=2014.2.715.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\AccReportGenerator.cs" />
+    <Compile Include="Account\Transactions\DataSets\DsAccTemplate.Designer.cs">
+      <DependentUpon>DsAccTemplate.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Account\Transactions\Reports\AccRptReceiptTransactionSummaryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccRptReceiptTransactionSummaryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Account\Transactions\Reports\AccRptTransactionSummaryTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccRptTransactionSummaryTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Account\Transactions\Reports\AccRptTransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccRptTransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Account\Transactions\Reports\AccRptTransactionSummaryTemplateLandscape.cs">
+      <DependentUpon>AccRptTransactionSummaryTemplateLandscape.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Com\ComReportGenerator.cs" />
+    <Compile Include="Com\Reference\DataSets\DsComTemplate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsComTemplate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Com\Reference\Reports\ComRptReferenceDetailTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComRptReferenceDetailTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Com\RptReportConditions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReportConditions.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Com\Transactions\Reports\ComRptOpeningBalancesTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComRptOpeningBalancesTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\CrmReportGenerator.cs" />
+    <Compile Include="CRM\DataSets\DsCrmReportTemplatePoints.Designer.cs">
+      <DependentUpon>DsCrmReportTemplatePoints.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRM\DataSets\InvLoyaltyTransaction.cs">
+      <DependentUpon>InvLoyaltyTransaction.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CRM\DataSets\InvLoyaltyTransaction.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvLoyaltyTransaction.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CRM\DataSets\LocationWiseSummery.cs">
+      <DependentUpon>LocationWiseSummery.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CRM\DataSets\LocationWiseSummery.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocationWiseSummery.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCardIssuedDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCardIssuedDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCardIssuedDetailsAllLocations.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCardIssuedDetailsAllLocations.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCardUsageDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCardUsageDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCashierPerformances.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCashierPerformances.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCashierPerformancesAllLocations.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCashierPerformancesAllLocations.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCustomerVisitCustomerWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCustomerVisitCustomerWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCustomerVisitCustomerWiseSelectedLocation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCustomerVisitCustomerWiseSelectedLocation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCustomerVisitSummeryAllLocation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCustomerVisitSummeryAllLocation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCustomerVisitSummeryAllLocationWithoutPurchases.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCustomerVisitSummeryAllLocationWithoutPurchases.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptGoldCardSelection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptGoldCardSelection.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptLocationWiseAnalysis.cs">
+      <DependentUpon>CrmRptLocationWiseAnalysis.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCustomerStatement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCustomerStatement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCustomerTransactions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCustomerTransactions.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptCustomerTransactionsTypeWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptCustomerTransactionsTypeWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptLocationWiseTypeWiseSummery.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptLocationWiseTypeWiseSummery.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptLostAndReNew.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptLostAndReNew.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptLostAndReNewSelectedLocation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptLostAndReNewSelectedLocation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptManuallyAddedPointsDetails1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptManuallyAddedPointsDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptManuallyAddedPointsDetailsAllLocations.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptManuallyAddedPointsDetailsAllLocations.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptPointsBreakDown.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptPointsBreakDown.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptReferenceTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptReferenceTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptReportTemplatePointsWithTotal.cs">
+      <DependentUpon>CrmRptReportTemplatePointsWithTotal.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptReportTemplatePoints2Group.cs">
+      <DependentUpon>CrmRptReportTemplatePoints2Group.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptReportTemplatePoints.cs">
+      <DependentUpon>CrmRptReportTemplatePoints.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptTopCustomerPerformances.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptTopCustomerPerformances.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptTypeWiseCustomerDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrmRptTypeWiseCustomerDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptDetailsTemplate.cs">
+      <DependentUpon>CrmRptDetailsTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptGroupedDetailsTemplate.cs">
+      <DependentUpon>CrmRptGroupedDetailsTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="GUI\FrmBaseReportsForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmBaseReportsForm2.designer.cs">
+      <DependentUpon>FrmBaseReportsForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmOrderSystemFilterSalesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmOrderSystemFilterSalesReport.Designer.cs">
+      <DependentUpon>FrmOrderSystemFilterSalesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmOrderSystemFilterReport2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmOrderSystemFilterReport2.Designer.cs">
+      <DependentUpon>FrmOrderSystemFilterReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CustomControls\TextBoxNumericMinus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\CustomControls\TextBoxNumericMinus.Designer.cs">
+      <DependentUpon>TextBoxNumericMinus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCrmCardIssuedDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmCardIssuedDetails.designer.cs">
+      <DependentUpon>FrmCrmCardIssuedDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCrmCardUsage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmCardUsage.designer.cs">
+      <DependentUpon>FrmCrmCardUsage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCrmCashierPerformance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmCashierPerformance.designer.cs">
+      <DependentUpon>FrmCrmCashierPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmOrderSystemFilterReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmOrderSystemFilterReport.Designer.cs">
+      <DependentUpon>FrmOrderSystemFilterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmOrderSystemSalesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmOrderSystemSalesReport.designer.cs">
+      <DependentUpon>FrmOrderSystemSalesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmOrderSystemPendingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmOrderSystemPendingReport.designer.cs">
+      <DependentUpon>FrmOrderSystemPendingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCrmLocationAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmLocationAnalysis.designer.cs">
+      <DependentUpon>FrmCrmLocationAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CustomControls\TextBoxNumeric.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\CustomControls\TextBoxNumeric.designer.cs">
+      <DependentUpon>TextBoxNumeric.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmBasketAnalysisReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmBasketAnalysisReport.Designer.cs">
+      <DependentUpon>FrmBasketAnalysisReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmBinCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmLocationWiseTypeWiseSummery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmLocationWiseTypeWiseSummery.designer.cs">
+      <DependentUpon>FrmCrmLocationWiseTypeWiseSummery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCrmLostAndRenewDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmLostAndRenewDetail.designer.cs">
+      <DependentUpon>FrmCrmLostAndRenewDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCrmManuallyAddedPoints.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmManuallyAddedPoints.Designer.cs">
+      <DependentUpon>FrmCrmManuallyAddedPoints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCrmPointsBreakdown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmPointsBreakdown.designer.cs">
+      <DependentUpon>FrmCrmPointsBreakdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCrmTopCustomerPerformance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmTopCustomerPerformance.designer.cs">
+      <DependentUpon>FrmCrmTopCustomerPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCrmTypeWiseCustomerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCrmTypeWiseCustomerDetails.designer.cs">
+      <DependentUpon>FrmCrmTypeWiseCustomerDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmExtendedPropertyReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmExtendedPropertyReports.designer.cs">
+      <DependentUpon>FrmExtendedPropertyReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmLogistciBinCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmLogistciBinCard.Designer.cs">
+      <DependentUpon>FrmLogistciBinCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmReportGenerator2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmReportGenerator2.Designer.cs">
+      <DependentUpon>FrmReportGenerator2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmSupplierWiseReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RadForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RadForm1.Designer.cs">
+      <DependentUpon>RadForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GV\GvReportGenerator.cs" />
+    <Compile Include="GV\Transactions\DataSets\DsGVReportTemplate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsGVReportTemplate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GV\Transactions\Reports\GvRptTransactionSummaryTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GvRptTransactionSummaryTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GV\Transactions\Reports\GvRptTransactionSummaryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GvRptTransactionSummaryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GV\Transactions\Reports\GvRptTransactionTemplate.cs">
+      <DependentUpon>GvRptTransactionTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="GV\Transactions\Reports\GvRptTransactionTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GvRptTransactionTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GV\Transactions\Reports\GvRptTransactionTemplateLandscape1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GvRptTransactionTemplateLandscape1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptGivenDateStockProductWise11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptGivenDateStockProductWise1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptSupplierWisePerformanceAnalysis.cs">
+      <DependentUpon>InvRptSupplierWisePerformanceAnalysis.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Reference\DataSets\DsGivenDateStock.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsGivenDateStock.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptFastMovingVsPurchase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptFastMovingVsPurchase.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptStockMovement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptStockMovement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptSuppliesdd.cs">
+      <DependentUpon>InvRptSuppliesdd.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptBinCard.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptBinCard.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptColumn5Template.cs">
+      <DependentUpon>InvRptColumn5Template.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptFastMoving.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptFastMoving.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptGivenDateStockCategoryWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptGivenDateStockCategoryWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptGivenDateStockDepartmentWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptGivenDateStockDepartmentWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptGivenDateStockProductWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptGivenDateStockProductWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptGivenDateStockSubCategoryWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptGivenDateStockSubCategoryWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptGivenDateStockSupplierWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptGivenDateStockSupplierWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptNonMoving.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptNonMoving.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptProductTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptProductTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvSalesReportDtls.cs">
+      <DependentUpon>InvSalesReportDtls.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvSalesReportGroup.cs">
+      <DependentUpon>InvSalesReportGroup.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvSalesReportPendingGroup.cs">
+      <DependentUpon>InvSalesReportPendingGroup.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvSalesReportSum.cs">
+      <DependentUpon>InvSalesReportSum.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionTemplateSalesInv_backup.cs">
+      <DependentUpon>InvRptTransactionTemplateSalesInv_backup.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvSalesReportPending.cs">
+      <DependentUpon>InvSalesReportPending.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvActivePendingDtlReport.cs">
+      <DependentUpon>InvActivePendingDtlReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionTemplateSalesDispatch.cs">
+      <DependentUpon>InvRptTransactionTemplateSalesDispatch.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionTemplateSalesInvDis.cs">
+      <DependentUpon>InvRptTransactionTemplateSalesInvDis.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionTemplateSalesInv.cs">
+      <DependentUpon>InvRptTransactionTemplateSalesInv.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPurchaseTemplate1.cs">
+      <DependentUpon>InvRptPurchaseTemplate1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseAmount.cs">
+      <DependentUpon>InvRptSupplierWiseAmount.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseQty.cs">
+      <DependentUpon>InvRptSupplierWiseQty.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseQtyExt.cs">
+      <DependentUpon>InvRptSubCategory2WiseQtyExt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseAmountExt.cs">
+      <DependentUpon>InvRptSubCategory2WiseAmountExt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseAmountExt.cs">
+      <DependentUpon>InvRptSubCategoryWiseAmountExt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseQtyExt.cs">
+      <DependentUpon>InvRptSubCategoryWiseQtyExt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptCategoryWiseAmountExt.cs">
+      <DependentUpon>InvRptCategoryWiseAmountExt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptCategoryWiseQtyExt.cs">
+      <DependentUpon>InvRptCategoryWiseQtyExt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseAmountExt.cs">
+      <DependentUpon>InvRptDepartmentWiseAmountExt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseQtyExt.cs">
+      <DependentUpon>InvRptDepartmentWiseQtyExt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseQtyExt-backup.cs">
+      <DependentUpon>InvRptDepartmentWiseQtyExt-backup.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseAmount.cs">
+      <DependentUpon>InvRptSubCategory2WiseAmount.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseQty.cs">
+      <DependentUpon>InvRptSubCategory2WiseQty.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseAmount.cs">
+      <DependentUpon>InvRptSubCategoryWiseAmount.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseQty.cs">
+      <DependentUpon>InvRptSubCategoryWiseQty.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptCategoryWiseAmount.cs">
+      <DependentUpon>InvRptCategoryWiseAmount.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptCategoryWiseQty.cs">
+      <DependentUpon>InvRptCategoryWiseQty.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptBasketAnalysis.cs">
+      <DependentUpon>InvRptBasketAnalysis.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptBatchStockBalancesTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptBatchStockBalancesTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptCategoryWiseProductWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptCategoryWiseProductWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptCategoryWiseProductWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptCategoryWiseProductWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptCategoryWiseSubCategory2WiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptCategoryWiseSubCategory2WiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptCategoryWiseSubCategory2WiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptCategoryWiseSubCategory2WiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptCategoryWiseSubCategoryWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptCategoryWiseSubCategoryWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptCategoryWiseSubCategoryWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptCategoryWiseSubCategoryWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseCategoryWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseCategoryWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseCategoryWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseCategoryWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseProductWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseProductWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseProductWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseProductWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseSales.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseSales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseSubCategory2WiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseSubCategory2WiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseSubCategory2WiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseSubCategory2WiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseSubCategoryWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseSubCategoryWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDepartmentWiseSubCategoryWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDepartmentWiseSubCategoryWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptExtendedPropertySales.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptExtendedPropertySales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptExtendedPropertySalesTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptExtendedPropertySalesTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPriceChangeProductDamageTemplate.cs">
+      <DependentUpon>InvRptPriceChangeProductDamageTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPriceChangeProductTemplate.cs">
+      <DependentUpon>InvRptPriceChangeProductTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptGRNTransactionSummeryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptGRNTransactionSummeryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptOpeningStockSmallPaper.cs">
+      <DependentUpon>InvRptOpeningStockSmallPaper.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPosSalesSummeryLocationWise.cs">
+      <DependentUpon>InvRptPosSalesSummeryLocationWise.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPosSalesSummery.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptPosSalesSummery.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPOTransactionSummeryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptPOTransactionSummeryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPriceChangeTransactionSummaryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptPriceChangeTransactionSummaryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPRNTransactionSummeryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptPRNTransactionSummeryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPRNTransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptPRNTransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPurchaseOrderProductTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptPurchaseOrderProductTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPurchaseOrderTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptPurchaseOrderTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPurchaseTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptPurchaseTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPurchaseTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptPurchaseTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSalesCrossTabTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSalesCrossTabTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSalesTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSalesTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptGroupedDetailsTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptGroupedDetailsTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptDetailsTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptDetailsTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSalesTemplateStaffPurchase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSalesTemplateStaffPurchase.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSTATransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSTATransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptStockBalancesTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptStockBalancesTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptStockBalancesTemplateLandscape1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptStockBalancesTemplateLandscape1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseProductWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSubCategory2WiseProductWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseProductWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSubCategory2WiseProductWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseProductWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSubCategoryWiseProductWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseProductWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSubCategoryWiseProductWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseSubCategory2WiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSubCategoryWiseSubCategory2WiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseSubCategory2WiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSubCategoryWiseSubCategory2WiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseAmount001.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseAmount001.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseCategoryWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseCategoryWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseCategoryWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseCategoryWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseDepartmentWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseDepartmentWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseDepartmentWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseDepartmentWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseProductWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseProductWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseProductWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseProductWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseQty001.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseQty001.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseSales.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseSales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseSubCategory2Amount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseSubCategory2Amount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseSubCategory2Qty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseSubCategory2Qty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseSubCategoryWiseAmount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseSubCategoryWiseAmount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSupplierWiseSubCategoryWiseQty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptSupplierWiseSubCategoryWiseQty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTOGTransactionSummeryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptTOGTransactionSummeryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTOGTransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptTOGTransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionPriceChange.cs">
+      <DependentUpon>InvRptTransactionPriceChange.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptProductPurchaseTemplate.cs">
+      <DependentUpon>InvRptProductPurchaseTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptStockTemplate.cs">
+      <DependentUpon>InvRptStockTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvPurchaseTransactionTemplate.cs">
+      <DependentUpon>InvPurchaseTransactionTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptSalesSummeryTemplate.cs">
+      <DependentUpon>InvRptSalesSummeryTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptPurchaseSummeryTemplate.cs">
+      <DependentUpon>InvRptPurchaseSummeryTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionSummeryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptTransactionSummeryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionTemplateSalesOrder.cs">
+      <DependentUpon>InvRptTransactionTemplateSalesOrder.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptTransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionTemplateLandscape1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptTransactionTemplateLandscape1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionTemplateTmp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptTransactionTemplateTmp.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransferTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptTransferTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransferTemplateLandscapeTmp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptTransferTemplateLandscapeTmp.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRpt_CurrentSale.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRpt_CurrentSale.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRpt_CurrentSaleCategoryWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRpt_CurrentSaleCategoryWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRpt_CurrentSaleDepartmentWise1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRpt_CurrentSaleDepartmentWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRpt_CurrentSaleSubCategoryWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRpt_CurrentSaleSubCategoryWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\LgsReportGenerator.cs" />
+    <Compile Include="Logistic\Reference\DataSets\DsGivenDateStock.Designer.cs">
+      <DependentUpon>DsGivenDateStock.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Logistic\Reference\DataSets\DsLgsTemplate.Designer.cs">
+      <DependentUpon>DsLgsTemplate.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Logistic\Reference\Reports\LgsRptBinCard.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptBinCard.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Reference\Reports\LgsRptColumn5Template.cs">
+      <DependentUpon>LgsRptColumn5Template.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Logistic\Reference\Reports\LgsRptProductTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptProductTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Reference\Reports\LgsRptReferenceDetailTemplate.cs">
+      <DependentUpon>LgsRptReferenceDetailTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRM\DataSets\DsCrmReportTemplate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsCrmReportTemplate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\InvReportGenerator.cs" />
+    <Compile Include="Inventory\Reference\DataSets\DsDepartment.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsDepartment.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmBaseReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmBaseReportsForm.designer.cs">
+      <DependentUpon>FrmBaseReportsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmReportViewer.designer.cs">
+      <DependentUpon>FrmReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmReportGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmReportGenerator.designer.cs">
+      <DependentUpon>FrmReportGenerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Reference\DataSets\DsInvTemplate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsInvTemplate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\InvRptReferenceDetailTemplate.cs">
+      <DependentUpon>InvRptReferenceDetailTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Reference\Reports\CryRptDeparment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CryRptDeparment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\DataSets\DsReportTemplate.cs">
+      <DependentUpon>DsReportTemplate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Transactions\DataSets\DsReportTemplate.designer.cs">
+      <DependentUpon>DsReportTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Transactions\DataSets\DsReportTemplate1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsReportTemplate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CRM\Reports\CrmRptReportTemplate.cs">
+      <DependentUpon>CrmRptReportTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptReportTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptReportTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventory\Transactions\Reports\InvRptTransactionSummeryTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvRptTransactionSummeryTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\DataSets\DsReportTemplate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsReportTemplate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptDetailsTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptDetailsTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptGRNTransactionSummeryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptGRNTransactionSummeryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptGRNTransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptGRNTransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptGroupedDetailsTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptGroupedDetailsTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptMANTransactionSummeryTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptMANTransactionSummeryTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptMANTransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptMANTransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptMRNTransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptMRNTransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptOpeningStockSmallPaper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptOpeningStockSmallPaper.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptPOTransactionSummeryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptPOTransactionSummeryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptPOTransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptPOTransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptPRNTransactionSummeryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptPRNTransactionSummeryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptPRNTransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptPRNTransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptStockBalancesTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptStockBalancesTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTOGTransactionSummeryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptTOGTransactionSummeryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTOGTransactionTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptTOGTransactionTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTransactionSummeryTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptTransactionSummeryTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTransactionSummeryTemplate2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptTransactionSummeryTemplate2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTransactionSummeryTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptTransactionSummeryTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTransactionTemplate1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptTransactionTemplate1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTransactionTemplateEmployeeDetailsSub.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptTransactionTemplateEmployeeDetailsSub.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTransactionTemplateLandscape1.cs">
+      <DependentUpon>LgsRptTransactionTemplateLandscape1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTransactionTemplate.cs">
+      <DependentUpon>LgsRptTransactionTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTransactionTemplateProductDetailsSub.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptTransactionTemplateProductDetailsSub.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTransactionTemplateSubReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptTransactionTemplateSubReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logistic\Transactions\Reports\LgsRptTransferTemplateLandscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgsRptTransferTemplateLandscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Account\Transactions\Reports\AccRptReceiptTransactionSummaryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AccRptReceiptTransactionSummaryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\Transactions\Reports\AccRptTransactionSummaryTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AccRptTransactionSummaryTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\Transactions\Reports\AccRptTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AccRptTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\Transactions\Reports\AccRptTransactionSummaryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AccRptTransactionSummaryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Com\Reference\Reports\ComRptReferenceDetailTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComRptReferenceDetailTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Com\RptReportConditions.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReportConditions.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Com\Transactions\Reports\ComRptOpeningBalancesTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ComRptOpeningBalancesTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCardIssuedDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCardIssuedDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCardIssuedDetailsAllLocations.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCardIssuedDetailsAllLocations.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCardUsageDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCardUsageDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCashierPerformances.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCashierPerformances.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCashierPerformancesAllLocations.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCashierPerformancesAllLocations.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCustomerVisitCustomerWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCustomerVisitCustomerWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCustomerVisitCustomerWiseSelectedLocation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCustomerVisitCustomerWiseSelectedLocation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCustomerVisitSummeryAllLocation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCustomerVisitSummeryAllLocation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCustomerVisitSummeryAllLocationWithoutPurchases.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCustomerVisitSummeryAllLocationWithoutPurchases.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptGoldCardSelection.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptGoldCardSelection.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptLocationWiseAnalysis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptLocationWiseAnalysis.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCustomerStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCustomerStatement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCustomerTransactions.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCustomerTransactions.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptCustomerTransactionsTypeWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptCustomerTransactionsTypeWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptLocationWiseTypeWiseSummery.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptLocationWiseTypeWiseSummery.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptLostAndReNew.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptLostAndReNew.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptLostAndReNewSelectedLocation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptLostAndReNewSelectedLocation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptManuallyAddedPointsDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptManuallyAddedPointsDetails1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptManuallyAddedPointsDetailsAllLocations.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptManuallyAddedPointsDetailsAllLocations.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptPointsBreakDown.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptPointsBreakDown.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptReferenceTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptReferenceTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptReportTemplatePointsWithTotal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptReportTemplatePointsWithTotal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptReportTemplatePoints2Group.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptReportTemplatePoints2Group.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptReportTemplatePoints.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptReportTemplatePoints.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptTopCustomerPerformances.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptTopCustomerPerformances.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptTypeWiseCustomerDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptTypeWiseCustomerDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptDetailsTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptDetailsTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptGroupedDetailsTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptGroupedDetailsTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmBaseReportsForm2.resx">
+      <DependentUpon>FrmBaseReportsForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmOrderSystemFilterSalesReport.resx">
+      <DependentUpon>FrmOrderSystemFilterSalesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmOrderSystemFilterReport2.resx">
+      <DependentUpon>FrmOrderSystemFilterReport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCrmCardIssuedDetails.resx">
+      <DependentUpon>FrmCrmCardIssuedDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCrmCardUsage.resx">
+      <DependentUpon>FrmCrmCardUsage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCrmCashierPerformance.resx">
+      <DependentUpon>FrmCrmCashierPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmOrderSystemFilterReport.resx">
+      <DependentUpon>FrmOrderSystemFilterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmOrderSystemSalesReport.resx">
+      <DependentUpon>FrmOrderSystemSalesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmOrderSystemPendingReport.resx">
+      <DependentUpon>FrmOrderSystemPendingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCrmLocationAnalysis.resx">
+      <DependentUpon>FrmCrmLocationAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmBasketAnalysisReport.resx">
+      <DependentUpon>FrmBasketAnalysisReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmBinCard.resx">
+      <DependentUpon>FrmBinCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCrmLocationWiseTypeWiseSummery.resx">
+      <DependentUpon>FrmCrmLocationWiseTypeWiseSummery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCrmLostAndRenewDetail.resx">
+      <DependentUpon>FrmCrmLostAndRenewDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCrmManuallyAddedPoints.resx">
+      <DependentUpon>FrmCrmManuallyAddedPoints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCrmPointsBreakdown.resx">
+      <DependentUpon>FrmCrmPointsBreakdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCrmTopCustomerPerformance.resx">
+      <DependentUpon>FrmCrmTopCustomerPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCrmTypeWiseCustomerDetails.resx">
+      <DependentUpon>FrmCrmTypeWiseCustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmExtendedPropertyReports.resx">
+      <DependentUpon>FrmExtendedPropertyReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmLogistciBinCard.resx">
+      <DependentUpon>FrmLogistciBinCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmReportGenerator2.resx">
+      <DependentUpon>FrmReportGenerator2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmSupplierWiseReport.resx">
+      <DependentUpon>FrmSupplierWiseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RadForm1.resx">
+      <DependentUpon>RadForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GV\Transactions\Reports\GvRptTransactionSummaryTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GvRptTransactionSummaryTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GV\Transactions\Reports\GvRptTransactionSummaryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GvRptTransactionSummaryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GV\Transactions\Reports\GvRptTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GvRptTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GV\Transactions\Reports\GvRptTransactionTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GvRptTransactionTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GV\Transactions\Reports\GvRptTransactionTemplateLandscape1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GvRptTransactionTemplateLandscape1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptGivenDateStockProductWise1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptGivenDateStockProductWise11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptSupplierWisePerformanceAnalysis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWisePerformanceAnalysis.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptFastMovingVsPurchase.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptFastMovingVsPurchase.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptStockMovement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptStockMovement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptSuppliesdd.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSuppliesdd.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptBinCard.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptBinCard.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptColumn5Template.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptColumn5Template.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptFastMoving.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptFastMoving.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptGivenDateStockCategoryWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptGivenDateStockCategoryWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptGivenDateStockDepartmentWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptGivenDateStockDepartmentWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptGivenDateStockProductWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptGivenDateStockProductWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptGivenDateStockSubCategoryWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptGivenDateStockSubCategoryWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptGivenDateStockSupplierWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptGivenDateStockSupplierWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptNonMoving.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptNonMoving.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptProductTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptProductTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvSalesReportDtls.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvSalesReportDtls.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvSalesReportGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvSalesReportGroup.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvSalesReportPendingGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvSalesReportPendingGroup.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvSalesReportSum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvSalesReportSum.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionTemplateSalesInv_backup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionTemplateSalesInv_backup.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvSalesReportPending.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvSalesReportPending.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvActivePendingDtlReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvActivePendingDtlReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionTemplateSalesDispatch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionTemplateSalesDispatch.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionTemplateSalesInvDis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionTemplateSalesInvDis.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionTemplateSalesInv.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionTemplateSalesInv.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPurchaseTemplate1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPurchaseTemplate1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseQtyExt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategory2WiseQtyExt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseAmountExt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategory2WiseAmountExt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseAmountExt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategoryWiseAmountExt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseQtyExt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategoryWiseQtyExt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptCategoryWiseAmountExt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptCategoryWiseAmountExt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptCategoryWiseQtyExt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptCategoryWiseQtyExt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseAmountExt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseAmountExt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseQtyExt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseQtyExt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseQtyExt-backup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseQtyExt-backup.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategory2WiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategory2WiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategoryWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategoryWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptCategoryWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptCategoryWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptCategoryWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptCategoryWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptBasketAnalysis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptBasketAnalysis.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptBatchStockBalancesTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptBatchStockBalancesTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptCategoryWiseProductWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptCategoryWiseProductWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptCategoryWiseProductWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptCategoryWiseProductWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptCategoryWiseSubCategory2WiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptCategoryWiseSubCategory2WiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptCategoryWiseSubCategory2WiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptCategoryWiseSubCategory2WiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptCategoryWiseSubCategoryWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptCategoryWiseSubCategoryWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptCategoryWiseSubCategoryWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptCategoryWiseSubCategoryWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseCategoryWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseCategoryWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseCategoryWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseCategoryWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseProductWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseProductWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseProductWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseProductWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseSales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseSales.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseSubCategory2WiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseSubCategory2WiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseSubCategory2WiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseSubCategory2WiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseSubCategoryWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseSubCategoryWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDepartmentWiseSubCategoryWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDepartmentWiseSubCategoryWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptExtendedPropertySales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptExtendedPropertySales.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptExtendedPropertySalesTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptExtendedPropertySalesTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPriceChangeProductDamageTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPriceChangeProductDamageTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPriceChangeProductTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPriceChangeProductTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptGRNTransactionSummeryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptGRNTransactionSummeryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptOpeningStockSmallPaper.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptOpeningStockSmallPaper.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPosSalesSummeryLocationWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPosSalesSummeryLocationWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPosSalesSummery.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPosSalesSummery.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPOTransactionSummeryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPOTransactionSummeryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPriceChangeTransactionSummaryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPriceChangeTransactionSummaryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPRNTransactionSummeryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPRNTransactionSummeryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPRNTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPRNTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPurchaseOrderProductTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPurchaseOrderProductTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPurchaseOrderTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPurchaseOrderTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPurchaseTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPurchaseTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPurchaseTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPurchaseTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSalesCrossTabTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSalesCrossTabTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSalesTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSalesTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptGroupedDetailsTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptGroupedDetailsTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptDetailsTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptDetailsTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSalesTemplateStaffPurchase.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSalesTemplateStaffPurchase.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSTATransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSTATransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptStockBalancesTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptStockBalancesTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptStockBalancesTemplateLandscape1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptStockBalancesTemplateLandscape1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseProductWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategory2WiseProductWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategory2WiseProductWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategory2WiseProductWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseProductWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategoryWiseProductWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseProductWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategoryWiseProductWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseSubCategory2WiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategoryWiseSubCategory2WiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSubCategoryWiseSubCategory2WiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSubCategoryWiseSubCategory2WiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseAmount001.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseAmount001.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseCategoryWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseCategoryWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseCategoryWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseCategoryWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseDepartmentWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseDepartmentWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseDepartmentWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseDepartmentWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseProductWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseProductWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseProductWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseProductWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseQty001.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseQty001.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseSales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseSales.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseSubCategory2Amount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseSubCategory2Amount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseSubCategory2Qty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseSubCategory2Qty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseSubCategoryWiseAmount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseSubCategoryWiseAmount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSupplierWiseSubCategoryWiseQty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSupplierWiseSubCategoryWiseQty.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTOGTransactionSummeryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTOGTransactionSummeryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTOGTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTOGTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionPriceChange.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionPriceChange.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptProductPurchaseTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptProductPurchaseTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptStockTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptStockTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvPurchaseTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvPurchaseTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptSalesSummeryTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptSalesSummeryTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptPurchaseSummeryTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptPurchaseSummeryTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionSummeryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionSummeryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionTemplateSalesOrder.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionTemplateSalesOrder.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionTemplateLandscape1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionTemplateLandscape1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionTemplateTmp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionTemplateTmp.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransferTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransferTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransferTemplateLandscapeTmp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransferTemplateLandscapeTmp.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRpt_CurrentSale.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRpt_CurrentSale.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRpt_CurrentSaleCategoryWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRpt_CurrentSaleCategoryWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRpt_CurrentSaleDepartmentWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRpt_CurrentSaleDepartmentWise1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRpt_CurrentSaleSubCategoryWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRpt_CurrentSaleSubCategoryWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Reference\Reports\LgsRptBinCard.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptBinCard.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Reference\Reports\LgsRptColumn5Template.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptColumn5Template.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Reference\Reports\LgsRptProductTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptProductTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Reference\Reports\LgsRptReferenceDetailTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptReferenceDetailTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmBaseReportsForm.resx">
+      <DependentUpon>FrmBaseReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmReportViewer.resx">
+      <DependentUpon>FrmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmReportGenerator.resx">
+      <DependentUpon>FrmReportGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRM\Reports\CrmRptReportTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrmRptReportTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\InvRptReferenceDetailTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptReferenceDetailTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Reference\Reports\CryRptDeparment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CryRptDeparment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptReportTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptReportTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Transactions\Reports\InvRptTransactionSummeryTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InvRptTransactionSummeryTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptDetailsTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptDetailsTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptGRNTransactionSummeryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptGRNTransactionSummeryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptGRNTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptGRNTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptGroupedDetailsTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptGroupedDetailsTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptMANTransactionSummeryTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptMANTransactionSummeryTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptMANTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptMANTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptMRNTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptMRNTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptOpeningStockSmallPaper.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptOpeningStockSmallPaper.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptPOTransactionSummeryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptPOTransactionSummeryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptPOTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptPOTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptPRNTransactionSummeryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptPRNTransactionSummeryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptPRNTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptPRNTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptStockBalancesTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptStockBalancesTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTOGTransactionSummeryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTOGTransactionSummeryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTOGTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTOGTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTransactionSummeryTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTransactionSummeryTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTransactionSummeryTemplate2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTransactionSummeryTemplate2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTransactionSummeryTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTransactionSummeryTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTransactionTemplate1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTransactionTemplate1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTransactionTemplateEmployeeDetailsSub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTransactionTemplateEmployeeDetailsSub.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTransactionTemplateLandscape1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTransactionTemplateLandscape1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTransactionTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTransactionTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTransactionTemplateProductDetailsSub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTransactionTemplateProductDetailsSub.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTransactionTemplateSubReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTransactionTemplateSubReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logistic\Transactions\Reports\LgsRptTransferTemplateLandscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LgsRptTransferTemplateLandscape.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Account\Transactions\DataSets\DsAccTemplate.xsc">
+      <DependentUpon>DsAccTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Account\Transactions\DataSets\DsAccTemplate.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsAccTemplate.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Account\Transactions\DataSets\DsAccTemplate.xss">
+      <DependentUpon>DsAccTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Com\Reference\DataSets\DsComTemplate.xsc">
+      <DependentUpon>DsComTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Com\Reference\DataSets\DsComTemplate.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsComTemplate.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Com\Reference\DataSets\DsComTemplate.xss">
+      <DependentUpon>DsComTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="CRM\DataSets\DsCrmReportTemplatePoints.xsc">
+      <DependentUpon>DsCrmReportTemplatePoints.xsd</DependentUpon>
+    </None>
+    <None Include="CRM\DataSets\DsCrmReportTemplatePoints.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsCrmReportTemplatePoints.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CRM\DataSets\DsCrmReportTemplatePoints.xss">
+      <DependentUpon>DsCrmReportTemplatePoints.xsd</DependentUpon>
+    </None>
+    <None Include="CRM\DataSets\InvLoyaltyTransaction.xsc">
+      <DependentUpon>InvLoyaltyTransaction.xsd</DependentUpon>
+    </None>
+    <None Include="CRM\DataSets\InvLoyaltyTransaction.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvLoyaltyTransaction.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CRM\DataSets\InvLoyaltyTransaction.xss">
+      <DependentUpon>InvLoyaltyTransaction.xsd</DependentUpon>
+    </None>
+    <None Include="CRM\DataSets\LocationWiseSummery.xsc">
+      <DependentUpon>LocationWiseSummery.xsd</DependentUpon>
+    </None>
+    <None Include="CRM\DataSets\LocationWiseSummery.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LocationWiseSummery.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CRM\DataSets\LocationWiseSummery.xss">
+      <DependentUpon>LocationWiseSummery.xsd</DependentUpon>
+    </None>
+    <None Include="GV\Transactions\DataSets\DsGVReportTemplate.xsc">
+      <DependentUpon>DsGVReportTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="GV\Transactions\DataSets\DsGVReportTemplate.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsGVReportTemplate.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="GV\Transactions\DataSets\DsGVReportTemplate.xss">
+      <DependentUpon>DsGVReportTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Inventory\Reference\DataSets\DsGivenDateStock.xsc">
+      <DependentUpon>DsGivenDateStock.xsd</DependentUpon>
+    </None>
+    <None Include="Inventory\Reference\DataSets\DsGivenDateStock.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsGivenDateStock.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Inventory\Reference\DataSets\DsGivenDateStock.xss">
+      <DependentUpon>DsGivenDateStock.xsd</DependentUpon>
+    </None>
+    <None Include="Logistic\Reference\DataSets\DsGivenDateStock.xsc">
+      <DependentUpon>DsGivenDateStock.xsd</DependentUpon>
+    </None>
+    <None Include="Logistic\Reference\DataSets\DsGivenDateStock.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsGivenDateStock.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Logistic\Reference\DataSets\DsGivenDateStock.xss">
+      <DependentUpon>DsGivenDateStock.xsd</DependentUpon>
+    </None>
+    <None Include="Logistic\Reference\DataSets\DsLgsTemplate.xsc">
+      <DependentUpon>DsLgsTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Logistic\Reference\DataSets\DsLgsTemplate.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsLgsTemplate.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Logistic\Reference\DataSets\DsLgsTemplate.xss">
+      <DependentUpon>DsLgsTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="CRM\DataSets\DsCrmReportTemplate.xsc">
+      <DependentUpon>DsCrmReportTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="CRM\DataSets\DsCrmReportTemplate.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsCrmReportTemplate.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CRM\DataSets\DsCrmReportTemplate.xss">
+      <DependentUpon>DsCrmReportTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Inventory\Reference\DataSets\DsDepartment.xsc">
+      <DependentUpon>DsDepartment.xsd</DependentUpon>
+    </None>
+    <None Include="Inventory\Reference\DataSets\DsDepartment.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsDepartment.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Inventory\Reference\DataSets\DsDepartment.xss">
+      <DependentUpon>DsDepartment.xsd</DependentUpon>
+    </None>
+    <None Include="Inventory\Reference\DataSets\DsInvTemplate.xsc">
+      <DependentUpon>DsInvTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Inventory\Reference\DataSets\DsInvTemplate.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsInvTemplate.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Inventory\Reference\DataSets\DsInvTemplate.xss">
+      <DependentUpon>DsInvTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Inventory\Transactions\DataSets\DsReportTemplate.xsc">
+      <DependentUpon>DsReportTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Inventory\Transactions\DataSets\DsReportTemplate.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsReportTemplate1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Inventory\Transactions\DataSets\DsReportTemplate.xss">
+      <DependentUpon>DsReportTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Logistic\Transactions\DataSets\DsReportTemplate.xsc">
+      <DependentUpon>DsReportTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Logistic\Transactions\DataSets\DsReportTemplate.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsReportTemplate.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Logistic\Transactions\DataSets\DsReportTemplate.xss">
+      <DependentUpon>DsReportTemplate.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{6f02b2c1-4fce-4427-b949-daee3527cab1}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{d5350ce9-e1a3-4c9f-a82e-7d837e1c9d0b}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{63ad686e-3477-49a6-b4b3-0cd7f1c0726e}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Account\Reference\" />
+    <Folder Include="Com\Transactions\DataSets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pre-loader.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,151 @@
+﻿
+/****** Object:  StoredProcedure dbo.spInvGoodReceivedNoteSave    Script Date: 08-16-2013 03:25:39 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+alter procedure dbo.spInvGoodReceivedNoteSave
+
+@InvPurchaseHeaderID bigint,
+@LocationID int,
+@DocumentID int,
+@DocumentStatus int
+
+
+as
+
+--By Pravin
+
+SET NOCOUNT ON
+
+
+
+BEGIN
+
+
+
+	BEGIN TRANSACTION InProc
+       
+	   UPDATE InvPurchaseHeader SET PurchaseHeaderID=InvPurchaseHeaderID WHERE InvPurchaseHeaderID=@InvPurchaseHeaderID
+
+	   UPDATE InvPurchaseDetail SET PurchaseDetailID=InvPurchaseDetailID WHERE PurchaseHeaderID=@InvPurchaseHeaderID AND LocationID=@LocationID AND DocumentID=@DocumentID
+
+	   UPDATE InvProductSerialNoDetail SET ProductSerialNoDetailID=InvProductSerialNoDetailID WHERE ReferenceDocumentID=@InvPurchaseHeaderID AND LocationID=@LocationID AND ReferenceDocumentDocumentID=@DocumentID
+
+	    if @DocumentStatus=1
+		BEGIN
+
+			UPDATE ps SET ps.Stock=ps.Stock+((pd.Qty+pd.FreeQty)*pd.ConvertFactor)
+			from InvProductStockMaster ps INNER JOIN InvPurchaseDetail pd
+			ON ps.ProductID=pd.ProductID AND ps.LocationID=pd.LocationID 
+			AND pd.LocationID=@LocationID AND pd.PurchaseHeaderID=@InvPurchaseHeaderID
+                   
+			UPDATE pm SET pm.CostPrice=pd.CostPrice,pm.SellingPrice=pd.SellingPrice,
+			pm.AverageCost=(((ps.Stock-pd.Qty)*pm.CostPrice)+(pd.Qty*pd.CostPrice))/(ps.Stock)
+			from InvProductMaster pm INNER JOIN InvPurchaseDetail pd
+			ON pm.InvProductMasterID=pd.ProductID 
+			INNER JOIN InvProductStockMaster ps
+			ON ps.ProductID=pm.InvProductMasterID AND ps.LocationID=pd.LocationID
+			AND pd.LocationID=@LocationID AND pd.PurchaseHeaderID=@InvPurchaseHeaderID
+			AND pd.BaseUnitID=pd.UnitOfMeasureID
+
+			UPDATE pu SET pu.CostPrice=pd.CostPrice,pu.SellingPrice=pd.SellingPrice
+			from InvProductUnitConversion pu INNER JOIN InvPurchaseDetail pd
+			ON pu.ProductID=pd.ProductID AND pu.UnitOfMeasureID=pd.UnitOfMeasureID
+			AND pd.LocationID=@LocationID AND pd.PurchaseHeaderID=@InvPurchaseHeaderID
+			AND pd.BaseUnitID!=pd.UnitOfMeasureID
+
+
+			INSERT INTO InvProductBatchNo
+			(
+			   CompanyID
+			  ,LocationID
+			  ,CostCentreID
+			  ,ProductID
+			  ,BatchNo
+			  ,Qty
+			  ,BalanceQty
+			  ,IsDelete
+			  ,GroupOfCompanyID
+			  ,CreatedUser
+			  ,CreatedDate
+			  ,ModifiedUser
+			  ,ModifiedDate
+			  ,IsDataTransfer
+			 )
+			 SELECT 
+			   pd.CompanyID
+			  ,pd.LocationID
+			  ,pd.CostCentreID
+			  ,pd.ProductID
+			  ,pd.PurchaseHeaderID
+			  ,pd.Qty
+			  ,pd.Qty
+			  ,0
+			  ,pd.GroupOfCompanyID
+			  ,pd.CreatedUser
+			  ,pd.CreatedDate
+			  ,pd.ModifiedUser
+			  ,pd.ModifiedDate
+			  ,pd.IsDataTransfer
+			 FROM InvPurchaseDetail pd inner join InvProductMaster pm
+			 ON pm.InvProductMasterID=pd.ProductID 
+			 WHERE pd.PurchaseHeaderID=@InvPurchaseHeaderID AND pd.LocationID=@LocationID AND pd.DocumentID=@DocumentID
+			 AND pm.IsBatch=1
+
+			 INSERT INTO InvProductExpiary
+			 (
+			   CompanyID
+			  ,LocationID
+			  ,CostCentreID
+			  ,ProductID
+			  ,ExpiaryDate
+			  ,Qty
+			  ,BalanceQty
+			  ,IsDelete
+			  ,GroupOfCompanyID
+			  ,CreatedUser
+			  ,CreatedDate
+			  ,ModifiedUser
+			  ,ModifiedDate
+			  ,IsDataTransfer
+			 )
+			 SELECT 
+			    CompanyID
+			  ,LocationID
+			  ,CostCentreID
+			  ,ProductID
+			  ,ExpiaryDate
+			  ,Qty
+			  ,Qty
+			  ,0
+			  ,GroupOfCompanyID
+			  ,CreatedUser
+			  ,CreatedDate
+			  ,ModifiedUser
+			  ,ModifiedDate
+			  ,IsDataTransfer
+			 FROM InvPurchaseDetail 
+			 WHERE PurchaseHeaderID=@InvPurchaseHeaderID AND LocationID=@LocationID AND DocumentID=@DocumentID AND ExpiaryDate IS NOT NULL
+
+		END
+		
+
+    if @@TRANCOUNT > 0
+		BEGIN
+			COMMIT TRANSACTION InProc;
+			SELECT 1 AS Result
+		END
+	ELSE
+		BEGIN
+			SELECT 0 AS Result
+		END
+
+
+END
+
+GO
+
+

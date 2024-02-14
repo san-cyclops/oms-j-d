@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F02B2C1-4FCE-4427-B949-DAEE3527CAB1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.Extended.6.0.0.86\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccBillEntryDetail.cs" />
+    <Compile Include="AccBillEntryHeader.cs" />
+    <Compile Include="AccCardCommission.cs" />
+    <Compile Include="AccChequeDetail.cs" />
+    <Compile Include="AccChequeNoRegisty.cs" />
+    <Compile Include="AccGlTransactionDetail.cs" />
+    <Compile Include="AccGlTransactionHeader.cs" />
+    <Compile Include="AccJournalEntryDetail.cs" />
+    <Compile Include="AccJournalEntryHeader.cs" />
+    <Compile Include="AccLedgerAccountStandardMaster.cs" />
+    <Compile Include="AccLoanEntryDetail.cs" />
+    <Compile Include="AccLoanEntryHeader.cs" />
+    <Compile Include="AccPaymentDetail.cs" />
+    <Compile Include="AccPaymentHeader.cs" />
+    <Compile Include="AccPettyCashBillDetail.cs" />
+    <Compile Include="AccPettyCashBillHeader.cs" />
+    <Compile Include="AccPettyCashImprestDetail.cs" />
+    <Compile Include="AccPettyCashIOUDetail.cs" />
+    <Compile Include="AccPettyCashIOUHeader.cs" />
+    <Compile Include="AccPettyCashMaster.cs" />
+    <Compile Include="AccPettyCashPaymentDetail.cs" />
+    <Compile Include="AccPettyCashPaymentHeader.cs" />
+    <Compile Include="AccPettyCashPaymentProcessDetail.cs" />
+    <Compile Include="AccPettyCashPaymentProcessHeader.cs" />
+    <Compile Include="AccPettyCashReimbursement.cs" />
+    <Compile Include="AccPettyCashVoucherDetail.cs" />
+    <Compile Include="AccPettyCashVoucherHeader.cs" />
+    <Compile Include="AccTransactionTypeDetail.cs" />
+    <Compile Include="AccTransactionTypeHeader.cs" />
+    <Compile Include="BankBin.cs" />
+    <Compile Include="BankBranch.cs" />
+    <Compile Include="AccLedgerAccount.cs" />
+    <Compile Include="Bank.cs" />
+    <Compile Include="Area.cs" />
+    <Compile Include="AutoGenerateInfo.cs" />
+    <Compile Include="BankPos.cs" />
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="Broker.cs" />
+    <Compile Include="CashierFunction.cs" />
+    <Compile Include="CashierGroup.cs" />
+    <Compile Include="CashierPermission.cs" />
+    <Compile Include="InvBasketAnalysisSelectedLocationsTemp.cs" />
+    <Compile Include="InvBasketAnalysisValueRange.cs" />
+    <Compile Include="InvBasketAnalysisValueRangeTemp.cs" />
+    <Compile Include="InvDamageType.cs" />
+    <Compile Include="InvProductProperty.cs" />
+    <Compile Include="InvPromotionDetailsBuyXSubCategory2.cs" />
+    <Compile Include="InvPromotionDetailsSubCategory2Dis.cs" />
+    <Compile Include="InvSalesDetail2.cs" />
+    <Compile Include="InvSalesDetailTemp2.cs" />
+    <Compile Include="InvSalesHeader2.cs" />
+    <Compile Include="InvScaner.cs" />
+    <Compile Include="InvScanerData.cs" />
+    <Compile Include="InvTmpReportDetail.cs" />
+    <Compile Include="InvTmpSalesProductExtendedProperty.cs" />
+    <Compile Include="LgsTmpProductStockDetail.cs" />
+    <Compile Include="LoanProvider.cs" />
+    <Compile Include="LoanPurpose.cs" />
+    <Compile Include="LoanType.cs" />
+    <Compile Include="PayType.cs" />
+    <Compile Include="PointsBreakdown.cs" />
+    <Compile Include="TempPointsBreakdown.cs" />
+    <Compile Include="PriceChangeTempDamage.cs" />
+    <Compile Include="EmployeeBackup.cs" />
+    <Compile Include="EmployeeDesignationType.cs" />
+    <Compile Include="InvCreditNoteDet.cs" />
+    <Compile Include="InvCreditNoteHed.cs" />
+    <Compile Include="InvEmployeeTransaction.cs" />
+    <Compile Include="InvMinusProductDetailsTemp.cs" />
+    <Compile Include="InvPosTerminalDetails.cs" />
+    <Compile Include="InvProductPriceChangeDetailDamage.cs" />
+    <Compile Include="InvProductPriceChangeHeader.cs" />
+    <Compile Include="InvProductPriceChangeHeaderDamage.cs" />
+    <Compile Include="InvReportBinCard.cs" />
+    <Compile Include="InvSalesPayment.cs" />
+    <Compile Include="InvTmpProductStockDetails.cs" />
+    <Compile Include="LgsBarcodeDetailTemp.cs" />
+    <Compile Include="LgsMinusProductDetailsTemp.cs" />
+    <Compile Include="LgsProductExpiaryTemp.cs" />
+    <Compile Include="LgsProductExtendedPropertyValue.cs" />
+    <Compile Include="LgsPurchase.cs" />
+    <Compile Include="LocationAssignedCostCentre.cs" />
+    <Compile Include="LostAndRenew.cs" />
+    <Compile Include="CardMaster.cs" />
+    <Compile Include="ColorPalate.cs" />
+    <Compile Include="CommissionSchema.cs" />
+    <Compile Include="Company.cs" />
+    <Compile Include="CostCentre.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerFeedBack.cs" />
+    <Compile Include="CustomerGroup.cs" />
+    <Compile Include="Designation.cs" />
+    <Compile Include="DocumentNumber.cs" />
+    <Compile Include="Driver.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="GroupOfCompany.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="HrmEmployee.cs" />
+    <Compile Include="IBaseEntity.cs" />
+    <Compile Include="InvBarcodeDetailTemp.cs" />
+    <Compile Include="InvCategory.cs" />
+    <Compile Include="InvDCS.cs" />
+    <Compile Include="InvDepartment.cs" />
+    <Compile Include="InvDispatchDetail.cs" />
+    <Compile Include="InvDispatchHeader.cs" />
+    <Compile Include="InvGiftVoucherMaster.cs" />
+    <Compile Include="InvGiftVoucherMasterTemp.cs" />
+    <Compile Include="InvGiftVoucherGroup.cs" />
+    <Compile Include="InvGiftVoucherBookCode.cs" />
+    <Compile Include="InvGiftVoucherPurchaseDetail.cs" />
+    <Compile Include="InvGiftVoucherPurchaseDetailTemp.cs" />
+    <Compile Include="InvGiftVoucherPurchaseHeader.cs" />
+    <Compile Include="InvGiftVoucherPurchaseOrderDetail.cs" />
+    <Compile Include="InvGiftVoucherPurchaseOrderDetailTemp.cs" />
+    <Compile Include="InvGiftVoucherPurchaseOrderHeader.cs" />
+    <Compile Include="InvGiftVoucherTransferNoteDetail.cs" />
+    <Compile Include="InvGiftVoucherTransferNoteDetailTemp.cs" />
+    <Compile Include="InvGiftVoucherTransferNoteHeader.cs" />
+    <Compile Include="InvInvoiceDetail.cs" />
+    <Compile Include="InvInvoiceHeader.cs" />
+    <Compile Include="InvLoyaltyTransaction.cs" />
+    <Compile Include="InvPaymentCardType.cs" />
+    <Compile Include="InvPreSaleDetail.cs" />
+    <Compile Include="InvPreSaleHeader.cs" />
+    <Compile Include="InvProductBatchNoExpiaryDetail.cs" />
+    <Compile Include="InvProductBatchNoTemp.cs" />
+    <Compile Include="InvProductColorSizeDetail.cs" />
+    <Compile Include="InvProductExpiaryTemp.cs" />
+    <Compile Include="InvProductExtendedPropertyValue.cs" />
+    <Compile Include="InvProductExtendedProperty.cs" />
+    <Compile Include="InvProductExtendedPropertyAssignment.cs" />
+    <Compile Include="InvProductExtendedValue.cs" />
+    <Compile Include="InvProductLink.cs" />
+    <Compile Include="InvProductMaster.cs" />
+    <Compile Include="InvProductPriceChangeDetail.cs" />
+    <Compile Include="InvProductPriceLink.cs" />
+    <Compile Include="InvProductSerialNo.cs" />
+    <Compile Include="InvProductSerialNoDetail.cs" />
+    <Compile Include="InvProductStockMaster.cs" />
+    <Compile Include="InvProductSupplierLink.cs" />
+    <Compile Include="InvProductUnitConversion.cs" />
+    <Compile Include="InvPromotionBuyXTemp.cs" />
+    <Compile Include="InvPromotionCategoryTemp.cs" />
+    <Compile Include="InvPromotionDepartmentTemp.cs" />
+    <Compile Include="InvPromotionDetailsAllowLocations.cs" />
+    <Compile Include="InvPromotionDetailsAllowTypes.cs" />
+    <Compile Include="InvPromotionDetailsBuyXCategory.cs" />
+    <Compile Include="InvPromotionDetailsBuyXDepartment.cs" />
+    <Compile Include="InvPromotionDetailsBuyXProduct.cs" />
+    <Compile Include="InvPromotionDetailsBuyXSubCategory.cs" />
+    <Compile Include="InvPromotionDetailsCategoryDis.cs" />
+    <Compile Include="InvPromotionDetailsDepartmentDis.cs" />
+    <Compile Include="InvPromotionDetailsGetYDetails.cs" />
+    <Compile Include="InvPromotionDetailsProductDis.cs" />
+    <Compile Include="InvPromotionDetailsSubCategoryDis.cs" />
+    <Compile Include="InvPromotionDetailsSubTotal.cs" />
+    <Compile Include="InvPromotionGetYTemp.cs" />
+    <Compile Include="InvPromotionMaster.cs" />
+    <Compile Include="InvPromotionProductDiscountTemp.cs" />
+    <Compile Include="InvPromotionSubCategoryTemp.cs" />
+    <Compile Include="InvPromotionType.cs" />
+    <Compile Include="InvPurchase.cs" />
+    <Compile Include="InvPurchaseDetail.cs" />
+    <Compile Include="InvPurchaseDetailTemp.cs" />
+    <Compile Include="InvPurchaseHeader.cs" />
+    <Compile Include="InvPurchaseOrderDetail.cs" />
+    <Compile Include="InvPurchaseOrderDetailTemp.cs" />
+    <Compile Include="InvPurchaseOrderHeader.cs" />
+    <Compile Include="InvQuotationDetail.cs" />
+    <Compile Include="InvQuotationDetailTemp.cs" />
+    <Compile Include="InvQuotationHeader.cs" />
+    <Compile Include="InvSales.cs" />
+    <Compile Include="InvSalesDetail.cs" />
+    <Compile Include="InvSalesDetailTemp.cs" />
+    <Compile Include="InvSalesHeader.cs" />
+    <Compile Include="InvSalesPerson.cs" />
+    <Compile Include="InvSalesSerialNoTemp.cs" />
+    <Compile Include="InvSize.cs" />
+    <Compile Include="InvStockAdjustmentDetail.cs" />
+    <Compile Include="InvStockAdjustmentDetailTemp.cs" />
+    <Compile Include="InvStockAdjustmentHeader.cs" />
+    <Compile Include="InvSubCategory.cs" />
+    <Compile Include="InvSubCategory2.cs" />
+    <Compile Include="InvTransferDetailsTemp.cs" />
+    <Compile Include="InvTransferNoteDetail.cs" />
+    <Compile Include="InvTransferNoteHeader.cs" />
+    <Compile Include="InvTransferType.cs" />
+    <Compile Include="AccLedgerSerialNumber.cs" />
+    <Compile Include="LgsCategory.cs" />
+    <Compile Include="LgsDepartment.cs" />
+    <Compile Include="LgsMaintenanceJobAssignEmployeeDetail.cs" />
+    <Compile Include="LgsMaintenanceJobAssignEmployeeDetailTemp.cs" />
+    <Compile Include="LgsMaintenanceJobAssignHeader.cs" />
+    <Compile Include="LgsMaintenanceJobAssignProductDetail.cs" />
+    <Compile Include="LgsMaintenanceJobAssignProductDetailTemp.cs" />
+    <Compile Include="LgsMaintenanceJobRequisitionHeader.cs" />
+    <Compile Include="LgsMaterialAllocationDetail.cs" />
+    <Compile Include="LgsMaterialAllocationDetailTemp.cs" />
+    <Compile Include="LgsMaterialAllocationHeader.cs" />
+    <Compile Include="LgsMaterialConsumptionDetail.cs" />
+    <Compile Include="LgsMaterialConsumptionDetailTemp.cs" />
+    <Compile Include="LgsMaterialConsumptionHeader.cs" />
+    <Compile Include="LgsMaterialRequestDetail.cs" />
+    <Compile Include="LgsMaterialRequestDetailTemp.cs" />
+    <Compile Include="LgsMaterialRequestHeader.cs" />
+    <Compile Include="LgsProductBatchNoExpiaryDetail.cs" />
+    <Compile Include="LgsProductBatchNoTemp.cs" />
+    <Compile Include="LgsProductColorSizeDetail.cs" />
+    <Compile Include="LgsProductExpiary.cs" />
+    <Compile Include="LgsProductExtendedProperty.cs" />
+    <Compile Include="LgsProductExtendedPropertyAssignment.cs" />
+    <Compile Include="LgsProductExtendedValue.cs" />
+    <Compile Include="LgsProductLink.cs" />
+    <Compile Include="LgsProductMaster.cs" />
+    <Compile Include="LgsProductPriceChange.cs" />
+    <Compile Include="LgsProductPriceLink.cs" />
+    <Compile Include="LgsProductSerialNo.cs" />
+    <Compile Include="LgsProductSerialNoDetail.cs" />
+    <Compile Include="LgsProductSerialNoTemp.cs" />
+    <Compile Include="LgsProductStockMaster.cs" />
+    <Compile Include="LgsProductSupplierLink.cs" />
+    <Compile Include="LgsProductUnitConversion.cs" />
+    <Compile Include="LgsPurchaseDetail.cs" />
+    <Compile Include="LgsPurchaseDetailTemp.cs" />
+    <Compile Include="LgsPurchaseHeader.cs" />
+    <Compile Include="LgsPurchaseOrderDetailTemp.cs" />
+    <Compile Include="LgsPurchaseOrderDetail.cs" />
+    <Compile Include="LgsPurchaseOrderHeader.cs" />
+    <Compile Include="LgsReturnType.cs" />
+    <Compile Include="LgsStockAdjustmentDetail.cs" />
+    <Compile Include="LgsStockAdjustmentDetailTemp.cs" />
+    <Compile Include="LgsStockAdjustmentHeader.cs" />
+    <Compile Include="LgsSubCategory.cs" />
+    <Compile Include="LgsSubCategory2.cs" />
+    <Compile Include="LgsSupplier.cs" />
+    <Compile Include="LgsSupplierProperty.cs" />
+    <Compile Include="LgsTransferDetailsTemp.cs" />
+    <Compile Include="LgsTransferNoteDetail.cs" />
+    <Compile Include="LgsTransferNoteHeader.cs" />
+    <Compile Include="LgsTransferType.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="LookUpReference.cs" />
+    <Compile Include="LoyaltyCardAllocation.cs" />
+    <Compile Include="LoyaltyCardAllocationLog.cs" />
+    <Compile Include="LoyaltyCardGenerationDetail.cs" />
+    <Compile Include="LoyaltyCardGenerationDetailTemp.cs" />
+    <Compile Include="LoyaltyCardGenerationHeader.cs" />
+    <Compile Include="CardGenerationSetting.cs" />
+    <Compile Include="LoyaltyCardIssueDetail.cs" />
+    <Compile Include="LoyaltyCardIssueHeader.cs" />
+    <Compile Include="LoyaltyCustomer.cs" />
+    <Compile Include="LgsQuotationDetail.cs" />
+    <Compile Include="LgsQuotationDetailTemp.cs" />
+    <Compile Include="LgsQuotationHeader.cs" />
+    <Compile Include="LoyaltySuplimentary.cs" />
+    <Compile Include="OtherExpenseTemp.cs" />
+    <Compile Include="OpeningStockDetail.cs" />
+    <Compile Include="OpeningStockDetailTemp.cs" />
+    <Compile Include="OpeningStockHeader.cs" />
+    <Compile Include="PaymentDet.cs" />
+    <Compile Include="PaymentMethod.cs" />
+    <Compile Include="InvProductSerialNoTemp.cs" />
+    <Compile Include="InvPromotion.cs" />
+    <Compile Include="PaymentTemp.cs" />
+    <Compile Include="InvPosConfiguration.cs" />
+    <Compile Include="PriceChangeTemp.cs" />
+    <Compile Include="ProductCodeDependancy.cs" />
+    <Compile Include="ProductLocationInfoTemp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="InvReturnType.cs" />
+    <Compile Include="ReportGenerator.cs" />
+    <Compile Include="RSalesSummary.cs" />
+    <Compile Include="SalesOrderDetail.cs" />
+    <Compile Include="SalesOrderDetailTemp.cs" />
+    <Compile Include="SalesOrderHeader.cs" />
+    <Compile Include="SampleInDetail.cs" />
+    <Compile Include="SampleInDetailTemp.cs" />
+    <Compile Include="SampleInHeader.cs" />
+    <Compile Include="SampleOutDetail.cs" />
+    <Compile Include="SampleOutDetailTemp.cs" />
+    <Compile Include="SampleOutHeader.cs" />
+    <Compile Include="ServiceInDetail.cs" />
+    <Compile Include="ServiceInDetailTemp.cs" />
+    <Compile Include="ServiceInHeader.cs" />
+    <Compile Include="ServiceOutDetail.cs" />
+    <Compile Include="ServiceOutDetailTemp.cs" />
+    <Compile Include="ServiceOutHeader.cs" />
+    <Compile Include="Supplier.cs" />
+    <Compile Include="SupplierGroup.cs" />
+    <Compile Include="SupplierProperty.cs" />
+    <Compile Include="ReferenceType.cs" />
+    <Compile Include="SystemConfig.cs" />
+    <Compile Include="SystemFeature.cs" />
+    <Compile Include="Tax.cs" />
+    <Compile Include="TempLocationWiseLoyaltyAnalysis.cs" />
+    <Compile Include="TempLoyaltyTransactionSummery.cs" />
+    <Compile Include="Territory.cs" />
+    <Compile Include="test.cs" />
+    <Compile Include="TitleMaster.cs" />
+    <Compile Include="TransactionDet.cs" />
+    <Compile Include="TransactionRights.cs" />
+    <Compile Include="UnitOfMeasure.cs" />
+    <Compile Include="UserGroup.cs" />
+    <Compile Include="UserGroupPrivileges.cs" />
+    <Compile Include="UserMaster.cs" />
+    <Compile Include="UserPrivileges.cs" />
+    <Compile Include="UserPrivilegesLocations.cs" />
+    <Compile Include="Vehicle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{63ad686e-3477-49a6-b4b3-0cd7f1c0726e}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StoredProcedures\GoodReceivedNote.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
